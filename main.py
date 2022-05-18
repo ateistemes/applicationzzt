@@ -2,11 +2,12 @@ import os
 from tkinter import *
 from PIL import ImageTk, Image
 class App:
-    def __init__(self, root):
+    def __init__(self, root, papka):
+        self.papka = papka
         self.root = root
         self.root.geometry("700x600")
         p = os.getcwd()
-        os.chdir(p + '/topbooks')
+        os.chdir(p + self.papka)
         p = os.getcwd()
         self.spisok = os.listdir(p)
         self.l = 0
@@ -50,13 +51,6 @@ class App:
 
 
 
-
-
-
-
-
-
-
 root = Tk()
-ob = App(root)
+ob = App(root, '/topbooks')
 root.mainloop()
