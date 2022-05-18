@@ -1,38 +1,62 @@
-import tkinter as tk
 import os
-import tkinter.messagebox
+from tkinter import *
 from PIL import ImageTk, Image
-from tkinter import Button, OUTSIDE
-root = tk.Tk()
-canvas = tk.Canvas(root, height=800, width=700, bg='grey')
+class App:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("700x600")
+        p = os.getcwd()
+        os.chdir(p + '/topbooks')
+        p = os.getcwd()
+        self.spisok = os.listdir(p)
+        self.l = 0
+        self.r = 1
+        self.im = Image.open(self.spisok[self.l])
+        self.im = ImageTk.PhotoImage(self.im)
+        self.im_lbl = Label(self.root, image=self.im)
+        self.im_lbl.pack(side='left')
+        self.imr = Image.open(self.spisok[self.r])
+        self.imr = ImageTk.PhotoImage(self.imr)
+        self.imr_lbl = Label(self.root, image=self.imr)
+        self.imr_lbl.pack(side='right')
+        Button(self.root, text="left", command=self.left).pack(pady=5,side='left')
+        Button(self.root, text="right", command=self.right).pack(pady=5, side='right')
+    def left(self):
+        if (self.r == (len(self.spisok) - 1) or self.l == (len(self.spisok) - 1)):
+            pass
+        if self.r < self.l:
+            self.r = self.l + 1
+            self.imr = Image.open(self.spisok[self.r])
+            self.imr = ImageTk.PhotoImage(self.imr)
+            self.imr_lbl.config(image=self.imr)
+        else:
+            self.r += 1
+            self.imr = Image.open(self.spisok[self.r])
+            self.imr = ImageTk.PhotoImage(self.imr)
+            self.imr_lbl.config(image=self.imr)
+    def right(self):
+        if (self.r == (len(self.spisok) - 1) or self.l == (len(self.spisok) - 1)):
+            pass
+        if self.l < self.r:
+            self.l = self.r + 1
+            self.im = Image.open(self.spisok[self.l])
+            self.im = ImageTk.PhotoImage(self.im)
+            self.im_lbl.config(image=self.im)
+        else:
+            self.l += 1
+            self.im = Image.open(self.spisok[self.l])
+            self.im = ImageTk.PhotoImage(self.im)
+            self.im_lbl.config(image=self.im)
 
 
-p = os.getcwd()
 
-os.chdir(p + '/top_books')
-path = os.getcwd()
-print(path)
-spisok = os.listdir(path)
 
-def left():
-    pass
-def right():
-    pass
 
-i= 1
-while i<len(spisok):
-    picture = Image.open(spisok[i])
-    picture = ImageTk.PhotoImage(picture)
-    label = tk.Label(root, image=picture)
-    label.pack(side='left')
-    image = Image.open(spisok[i+1])
-    image = ImageTk.PhotoImage(image)
-    label = tk.Label(root, image = image)
-    label.pack(side='right')
-    break
 
-btn = Button(root, text='Left', bd=10, command=left())
-btn.place(x=10, y=450)
-btn2 = Button(root, text='Right', bd=10, command=right())
-btn2.place(x=570, y=450)
+
+
+
+
+root = Tk()
+ob = App(root)
 root.mainloop()
