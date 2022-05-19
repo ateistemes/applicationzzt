@@ -1,6 +1,26 @@
 import os
 from tkinter import *
 from PIL import ImageTk, Image
+class Open:
+    def __init__(self, root):
+        self.root = root
+        ##self.root.title("Yes/No")
+        ##self.root.iconbitmap(r'images/converted-icon.ico')
+        self.root.geometry('750x450')
+        self.font = Image.open(r"images/font.png")
+        self.font = ImageTk.PhotoImage(self.font)
+        ##bg = PhotoImage(file=r"images/font.png")
+        self.start_btn_image = Image.open(r"images/start.png")
+        self.start_btn_image = ImageTk.PhotoImage(self.start_btn_image)
+        ##start_btm_image = PhotoImage(file=r"images/start.png")
+        self.label = Label(root, image=self.font, bg='#0f0f0f')
+        self.label.place(x=0, y=0, relwidth=1, relheight=1)
+        Button(self.root,image=self.start_btn_image,borderwidth=0, bg='#0f0f0f').pack(pady=15,side='bottom')
+        #start_btm = Button(root, image=start_btm_image, command=start(), borderwidth=0, bg='#0f0f0f')
+        #start_btm.pack(pady=15, side=BOTTOM)
+    ### command start
+    def start(self):
+
 class App:
     def __init__(self, root, papka):
         self.papka = papka
@@ -52,5 +72,6 @@ class App:
 
 
 root = Tk()
-ob = App(root, '/topbooks')
+game = Open(root)
+##ob = App(root, '/topbooks')
 root.mainloop()
