@@ -34,7 +34,7 @@ class App:
         self.txt_lbl = Label(self.root, text='Here is your #1 Book!')
 
     def menu(self):
-        pass
+        self.btn
     def top_book(self):
         pass
 
