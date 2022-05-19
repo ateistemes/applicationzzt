@@ -1,25 +1,6 @@
 import os
 from tkinter import *
 from PIL import ImageTk, Image
-class Open:
-    def __init__(self, root):
-        self.root = root
-        ##self.root.title("Yes/No")
-        ##self.root.iconbitmap(r'images/converted-icon.ico')
-        self.root.geometry('750x450')
-        self.font = Image.open(r"images/font.png")
-        self.font = ImageTk.PhotoImage(self.font)
-        ##bg = PhotoImage(file=r"images/font.png")
-        self.start_btn_image = Image.open(r"images/start.png")
-        self.start_btn_image = ImageTk.PhotoImage(self.start_btn_image)
-        ##start_btm_image = PhotoImage(file=r"images/start.png")
-        self.label = Label(root, image=self.font, bg='#0f0f0f')
-        self.label.place(x=0, y=0, relwidth=1, relheight=1)
-        Button(self.root,image=self.start_btn_image,borderwidth=0, bg='#0f0f0f').pack(pady=15,side='bottom')
-        #start_btm = Button(root, image=start_btm_image, command=start(), borderwidth=0, bg='#0f0f0f')
-        #start_btm.pack(pady=15, side=BOTTOM)
-    ### command start
-    def start(self):
 
 class App:
     def __init__(self, root, papka):
@@ -32,6 +13,7 @@ class App:
         self.spisok = os.listdir(p)
         self.l = 0
         self.r = 1
+        #imgs
         self.im = Image.open(self.spisok[self.l])
         self.im = ImageTk.PhotoImage(self.im)
         self.im_lbl = Label(self.root, image=self.im)
@@ -40,11 +22,35 @@ class App:
         self.imr = ImageTk.PhotoImage(self.imr)
         self.imr_lbl = Label(self.root, image=self.imr)
         self.imr_lbl.pack(side='right')
-        Button(self.root, text="left", command=self.left).pack(pady=5,side='left')
-        Button(self.root, text="right", command=self.right).pack(pady=5, side='right')
+        #btns
+        self.b1 = Button(self.root, text="left", command=self.left)
+        self.b1.place(x=0, y=454)
+        self.b2 = Button(self.root, text="right", command=self.right)
+        self.b2.place(x=635, y=454)
+        self.btn_new = Button(self.root, text='New', command=self.menu)
+        self.btn_exit = Button(self.root, text='Exit', command=self.root.destroy)
+        #txts
+        self.txt = Text(self.root, height=20, width=80)
+        self.txt_lbl = Label(self.root, text='Here is your #1 Book!')
+
+    def menu(self):
+        self.btn
+    def top_book(self):
+        pass
+
+    def top_movie(self):
+        pass
+
     def left(self):
         if (self.r == (len(self.spisok) - 1) or self.l == (len(self.spisok) - 1)):
-            pass
+            self.imr_lbl.after(1000, self.imr_lbl.destroy())
+            self.b2.destroy()
+            self.b1.destroy()
+            self.im_lbl.pack(side='top')
+            self.txt_lbl.pack(side='bottom')
+            self.btn_new.pack(side='left')
+            self.btn_exit.pack(side='right')
+
         if self.r < self.l:
             self.r = self.l + 1
             self.imr = Image.open(self.spisok[self.r])
@@ -55,9 +61,17 @@ class App:
             self.imr = Image.open(self.spisok[self.r])
             self.imr = ImageTk.PhotoImage(self.imr)
             self.imr_lbl.config(image=self.imr)
+
     def right(self):
         if (self.r == (len(self.spisok) - 1) or self.l == (len(self.spisok) - 1)):
-            pass
+            self.im_lbl.after(1000, self.im_lbl.destroy())
+            self.b1.destroy()
+            self.b2.destroy()
+            self.imr_lbl.pack(side='top')
+            self.txt_lbl.pack(side='bottom')
+            self.btn_new.pack(side='left')
+            self.btn_exit.pack(side='right')
+
         if self.l < self.r:
             self.l = self.r + 1
             self.im = Image.open(self.spisok[self.l])
@@ -72,6 +86,6 @@ class App:
 
 
 root = Tk()
-game = Open(root)
-##ob = App(root, '/topbooks')
+root.resizable(width=False, height=False)
+ob = App(root, '/topbooks')
 root.mainloop()
