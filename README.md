@@ -8,7 +8,7 @@ As long as you open run the application, you will see a main menu, where you can
 #image
 
 If you click a "Top books" button you, will be offered two books to choose. 
-You should chooses one that you like the most, as long as you do so, the image in the opposite corner will change and now you have a different variats of choice. 
+You should chooses one that you like the most, as long as you do so, the image in the opposite corner will change and now you have different variats of choice. 
 Continue choosing till the game does not reveal your numero uno priority.
 
 #image
