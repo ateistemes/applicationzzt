@@ -22,8 +22,10 @@ Q&A:
  That is a GUI Python3 game that enables you to choose and spend your leisure time.
 
 In order to run:
+
 -Tkinter 
 -PIL
 -OS
 -Python3
+
 As long as you have theese installed in your PC, you will be able to run the scrips effortlessly.
