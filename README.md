@@ -15,11 +15,11 @@ Continue choosing till the game does not reveal your numero uno priority.
 
 Q&A:
 1. Why we have choosesn this topic? 
-Well, this was just an idea that we came up with and it seemed to be hady for us. 
+ Well, this was just an idea that we came up with and it seemed to be hady for us. 
 2. What is te problem?
-Problem of choice.
+ Problem of choice.
 3. What is the solution that you purpose?
-Well, that is a GUI Python3 game that enables you to choose and spend your leisure time.
+ That is a GUI Python3 game that enables you to choose and spend your leisure time.
 
 In order to run:
 -Tkinter 
