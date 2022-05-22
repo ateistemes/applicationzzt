@@ -23,9 +23,9 @@ Q&A:
 
 In order to run:
 
--Tkinter 
--PIL
--OS
--Python3
+ Tkinter 
+ PIL
+ OS
+ Python3
 
 As long as you have theese installed in your PC, you will be able to run the scrips effortlessly.
