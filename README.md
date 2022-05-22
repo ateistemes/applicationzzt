@@ -3,7 +3,7 @@ This is a group project of amateurs for Introduction to Engineering course at AI
 
 Basically, this is a simulation of "This or That" game, written in Python3 and using tkinter as a GUI. 
 
-As long as you open run the application, you will see a main menu, where you can choose in what area you whould like to play.
+As long as you open run the application, you will see a main menu, where you can choose in what area you would like to play.
 
 #image
 
