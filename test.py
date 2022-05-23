@@ -114,8 +114,8 @@ class MainView(tk.Frame):
         p1.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
         p2.place(in_=container, x=0, y=0, relwidth=1, relheight=1)
 
-        b1 = tk.Button(btn_frame, text="menu", command=p1.open_frame)
-        b2 = tk.Button(btn_frame, text="top books", command=p2.open_frame)
+        b1 = tk.Button(btn_frame, text="Menu", command=p1.open_frame)
+        b2 = tk.Button(btn_frame, text="Top books", command=p2.open_frame)
 
         b1.pack(side="top")
         b2.pack(side="top")
